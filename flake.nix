@@ -10,10 +10,10 @@
         haskell = prev.haskell // {
           packageOverrides = hfinal: hprev:
             prev.haskell.packageOverrides hfinal hprev // {
-              learnYesod = hfinal.callCabal2nix "servant-tutorial" ./. { };
+              servantTutorial = hfinal.callCabal2nix "servant-tutorial" ./. { };
             };
         };
-        learnYesod = final.haskell.lib.compose.justStaticExecutables final.haskellPackages.servantTutorial;
+        servantTutorial = final.haskell.lib.compose.justStaticExecutables final.haskellPackages.servantTutorial;
       };
       perSystem = system:
         let
@@ -31,7 +31,6 @@
               hspkgs.ormolu
               pkgs.bashInteractive
               pkgs.zlib
-              vscodiumWithExtensions
             ];
           };
           defaultPackage = pkgs.servantTutorial;
