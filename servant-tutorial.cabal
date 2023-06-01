@@ -1,0 +1,28 @@
+cabal-version:      3.4
+name:               servant-tutorial
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            MIT
+license-file:       LICENSE
+author:             Ian Burzynski
+maintainer:         23251244+iburzynski@users.noreply.github.com
+-- copyright:
+category:           Web
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+executable servant-tutorial
+    import:           warnings
+    main-is:          Main.hs
+    other-modules:    Server
+    -- other-extensions:
+    build-depends:
+        base ^>=4.16.4.0
+    default-extensions: OverloadedStrings
+    hs-source-dirs:   app, src
+    default-language: Haskell2010
