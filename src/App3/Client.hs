@@ -1,16 +1,16 @@
-module Server3.Client where
+module App3.Client where
 
-import Network.HTTP.Client (defaultManagerSettings, newManager)
-import Servant
-import Servant.Client (BaseUrl (BaseUrl), ClientM, Scheme (Http), client, mkClientEnv, runClientM)
-import Server3.Data
+import App3.App (API)
+import App3.Data
   ( ClientInfo (ClientInfo),
     Email,
     FileContent,
     HelloMessage,
     Position,
   )
-import Server3.Server3 (API)
+import Network.HTTP.Client (defaultManagerSettings, newManager)
+import Servant
+import Servant.Client (BaseUrl (BaseUrl), ClientM, Scheme (Http), client, mkClientEnv, runClientM)
 
 position :: Int -> Int -> ClientM Position
 hello :: Maybe [Char] -> ClientM HelloMessage

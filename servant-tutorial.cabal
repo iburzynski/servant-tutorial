@@ -20,23 +20,24 @@ executable servant-tutorial
     import:           warnings
     main-is:          Main.hs
     other-modules:    
-        Server1_2.Server1
-      , Server1_2.Server2
-      , Server1_2.Data
-      , Server3.Server3
-      , Server3.Data
-      , Server3.Client
+        App1_2.App1
+      , App1_2.App2
+      , App1_2.Data
+      , App3.App
+      , App3.Data
+      , App3.Client
       , Todo.Client
       , Todo.Data
       , Todo.DB
       , Todo.Middleware
-      , Todo.Server
-      , Todo.Utils
+      , Todo.App
+      , Utils
     -- other-extensions:
     build-depends:
         base ^>=4.16.4.0
       , aeson
       , bytestring
+      , containers
       , directory
       , http-client
       , http-types

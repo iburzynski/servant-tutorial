@@ -1,8 +1,8 @@
-module Server3.Server3 where
+module App3.App where
 
+import App3.Data
 import Control.Monad.IO.Class (MonadIO (liftIO))
 import Servant
-import Server3.Data
 import System.Directory (doesFileExist)
 
 type API =
@@ -10,11 +10,6 @@ type API =
     :<|> "hello" :> QueryParam "name" String :> Get '[JSON] HelloMessage
     :<|> "marketing" :> ReqBody '[JSON] ClientInfo :> Post '[JSON] Email
     :<|> "myfile.txt" :> Get '[JSON] FileContent
-
--- a handler of type `Handler a` is a computation of type `IO (Either ServerError a)`
--- i.e. an IO action that either returns an error or a result
--- `throwError` is used to return an error
--- `pure`/`return` returns a successful result
 
 position :: Int -> Int -> Handler Position
 position x y = pure (Position x y)

@@ -2,7 +2,8 @@
 
 {-# HLINT ignore "Redundant bracket" #-}
 {-# HLINT ignore "Avoid lambda" #-}
-module Todo.Server where
+module Todo.App where
+
 import Control.Monad.Except
 import Control.Monad.Reader (MonadReader (ask), runReaderT)
 import Data.Proxy
@@ -13,6 +14,7 @@ import Servant
 import Todo.DB (DBContext, Todo (..), runDb)
 import Todo.Data
 import Todo.Middleware (applyMiddleware)
+import Utils (URLRoot)
 import Web.PathPieces (toPathPiece)
 
 -- describe API as a union of request endpoints

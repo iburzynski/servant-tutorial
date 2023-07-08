@@ -1,4 +1,4 @@
-module Server3.Data where
+module App3.Data where
 
 import Data.Aeson (FromJSON, ToJSON)
 import Data.List (intercalate)
@@ -34,7 +34,12 @@ emailForClient c = Email from' to' subject' body'
   where
     from' = "great@company.com"
     to' = clientEmail c
-    subject' = "Hey " ++ clientName c ++ ", we miss you!"
+    subject' =
+      concat
+        [ "Hey ",
+          clientName c,
+          ", we miss you!"
+        ]
     body' =
       concat
         [ "Hi ",

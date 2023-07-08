@@ -5,8 +5,8 @@ import Network.HTTP.Client (defaultManagerSettings, newManager)
 import Servant (Proxy (Proxy), type (:<|>) ((:<|>)))
 import Servant.Client (ClientM, client, mkClientEnv, parseBaseUrl, runClientM)
 import Todo.Data (Priority (..), TodoAction (..), TodoResponse)
-import Todo.Server (API)
-import Todo.Utils (getURLRoot)
+import Todo.App (API)
+import Utils (getURLRoot)
 
 getTodos :: ClientM [TodoResponse]
 deleteTodos :: ClientM ()

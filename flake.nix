@@ -30,11 +30,11 @@
               hspkgs.hlint
               hspkgs.ormolu
               pkgs.bashInteractive
+              pkgs.postgresql
               pkgs.zlib
               (pkgs.vscode-with-extensions.override {
                 vscode = pkgs.vscodium;
                 vscodeExtensions = with pkgs.vscode-extensions; [
-                  asvetliakov.vscode-neovim
                   dracula-theme.theme-dracula
                   haskell.haskell
                   jnoortheen.nix-ide

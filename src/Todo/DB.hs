@@ -10,6 +10,9 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
 
+-- VS Code gives name shadowing warning in the TH code for some reason...
+{-# OPTIONS_GHC -Wno-name-shadowing #-}
+
 module Todo.DB where
 
 import Control.Monad.Logger

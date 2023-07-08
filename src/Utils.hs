@@ -1,7 +1,8 @@
-module Todo.Utils where
+module Utils where
 import System.Environment (getEnv)
 import Network.Wai.Handler.Warp (Port)
-import Todo.Data (URLRoot)
+
+type URLRoot = String
 
 getPort :: IO Port
 getPort = read <$> getEnv "PORT"

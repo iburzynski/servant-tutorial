@@ -8,11 +8,10 @@ import Data.Aeson
 import Data.Aeson.Types (Parser)
 import Data.Maybe (catMaybes, fromMaybe)
 import Database.Persist.Sqlite (Update, (=.))
+import GHC.Generics (Generic)
 import Servant (Handler)
 import Todo.DB (EntityField (..), Todo (Todo), TodoId)
-import GHC.Generics (Generic)
-
-type URLRoot = String
+import Utils (URLRoot)
 
 type AppM = ReaderT URLRoot Handler
 
@@ -43,11 +42,16 @@ instance FromJSON TodoResponse where
   parseJSON :: Value -> Parser TodoResponse
   parseJSON (Object o) =
     TodoResponse
-      <$> o .: "id"
-      <*> o .: "url"
-      <*> o .: "title"
-      <*> o .: "completed"
-      <*> o .: "priority"
+      <$> o
+      .: "id"
+      <*> o
+      .: "url"
+      <*> o
+      .: "title"
+      <*> o
+      .: "completed"
+      <*> o
+      .: "priority"
   parseJSON _ = mzero
 
 data TodoAction = TodoAction

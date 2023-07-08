@@ -24,3 +24,4 @@ cabal.project.local~
 .direnv
 
 *.sqlite3
+.DS_STORE
