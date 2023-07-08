@@ -30,7 +30,7 @@ experimental-features = flakes nix-command
   sudo launchctl start org.nixos.nix-daemon
   ```
 
-After cloning the repository, enter the `servant-tutorial` directory and run `nix develop` to enter the Nix environment (if you use `direnv`, you can instead run `direnv allow` when you enter the directory).
+After cloning the repository and installing `direnv`, enter the `servant-tutorial` directory and run `nix develop` to enter the Nix environment (if you use `direnv`, you can instead run `direnv allow` when you enter the directory).
 
 Once the dependencies finish building, you can run `codium .` to open a preconfigured VS Codium instance with IDE support. Run `cabal build` in the integrated terminal to build the project.
 
@@ -42,12 +42,19 @@ Use [GHCup](https://www.haskell.org/ghcup/) to install the required tooling and 
 You can then build the project via `cabal build`.
 
 ## **Running the App**
-You can try the app using the following command:
+If you're not using `direnv`, you'll need to set two environment variables in your terminal session:
+
+```sh
+HOST=localhost
+PORT=8080
+```
+
+Then you can serve the first sample app using the following command:
 
 ```
 cabal run servant-tutorial -- app1
 ```
 
-This will initialize a server running `app1` on the host and port specified in the `.envrc` file (`http://localhost:8080` by default).
+This will initialize a server running `app1` on the specified host and port.
 
 Go to `http://localhost:8080/users` to confirm the server is working (you should see a JSON object containing some user data).
