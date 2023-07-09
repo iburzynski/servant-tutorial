@@ -18,8 +18,8 @@ data User = User
 -- App1
 users1 :: [User]
 users1 =
-  [ User "Isaac Newton" 372 "isaac@newton.co.uk" (fromGregorian 1683 3 1),
-    User "Albert Einstein" 136 "ae@mc2.org" (fromGregorian 1905 12 1)
+  [ isaac,
+    albert
   ]
 
 -- App2
@@ -30,4 +30,4 @@ albert :: User
 albert = User "Albert Einstein" 136 "ae@mc2.org" (fromGregorian 1905 12 1)
 
 users2 :: [User]
-users2 = [isaac, albert]
+users2 = users1

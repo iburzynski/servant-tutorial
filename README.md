@@ -30,7 +30,7 @@ experimental-features = flakes nix-command
   sudo launchctl start org.nixos.nix-daemon
   ```
 
-After cloning the repository and installing `direnv`, enter the `servant-tutorial` directory and run `nix develop` to enter the Nix environment (if you use `direnv`, you can instead run `direnv allow` when you enter the directory).
+After cloning the repository, enter the `servant-tutorial` directory and run `nix develop` to enter the Nix environment (if you use `direnv`, you can instead run `direnv allow` when you enter the directory).
 
 Once the dependencies finish building, you can run `codium .` to open a preconfigured VS Codium instance with IDE support. Run `cabal build` in the integrated terminal to build the project.
 

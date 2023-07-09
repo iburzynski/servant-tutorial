@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-missing-signatures #-}
 module App3.Client where
 
 import App3.App (API)
@@ -12,10 +13,6 @@ import Network.HTTP.Client (defaultManagerSettings, newManager)
 import Servant
 import Servant.Client (BaseUrl (BaseUrl), ClientM, Scheme (Http), client, mkClientEnv, runClientM)
 
-position :: Int -> Int -> ClientM Position
-hello :: Maybe [Char] -> ClientM HelloMessage
-marketing :: ClientInfo -> ClientM Email
-file :: ClientM FileContent
 position :<|> hello :<|> marketing :<|> file = client @API Proxy
 
 queries :: ClientM (Position, HelloMessage, Email, FileContent)

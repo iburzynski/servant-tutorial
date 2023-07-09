@@ -1,7 +1,4 @@
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -Wno-unused-imports #-}
 
 module Main where
 
@@ -16,11 +13,12 @@ import System.Environment (getArgs)
 import Todo.App (todoApp)
 import Todo.DB (migrateAndRunDb)
 import Utils (URLRoot, getPort, getURLRoot)
+import qualified Data.Map.Strict as Map
 
 data Env = Env {port :: Port, urlRoot :: URLRoot}
 
 getApps :: Env -> Map String Application
-getApps Env {..} = [("app1", app1), ("app2", app2), ("app3", app3), ("todo", todoApp urlRoot)]
+getApps Env {..} = Map.fromList [("app1", app1), ("app2", app2), ("app3", app3), ("todo", todoApp urlRoot)]
 
 runApp :: String -> IO ()
 runApp name = do
@@ -29,7 +27,13 @@ runApp name = do
   let apps = getApps $ Env {..}
       app = apps ! name
   when (name == "todo") migrateAndRunDb
-  putStrLn $ "Running server at " ++ urlRoot
+  putStrLn $
+    concat
+      [ "Running ",
+        name,
+        " server at ",
+        urlRoot
+      ]
   run port app
 
 main :: IO ()
